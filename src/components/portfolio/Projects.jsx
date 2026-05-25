@@ -76,19 +76,21 @@ export function Projects() {
               />
 
               <div
-                className={`relative grid h-full gap-6 ${
+                className={`relative grid h-full min-w-0 gap-6 ${
                   p.featured && p.live ? "lg:grid-cols-[0.9fr_1.1fr]" : ""
                 }`}
               >
-                <div className="flex h-full flex-col">
+                <div className="flex h-full min-w-0 flex-col">
                   <div className="flex items-start justify-between gap-4">
-                    <div>
+                    <div className="min-w-0">
                       <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                         Project / 0{i + 1}
                       </span>
-                      <h3 className="mt-1 font-display text-2xl font-semibold">{p.name}</h3>
+                      <h3 className="mt-1 break-words font-display text-2xl font-semibold">
+                        {p.name}
+                      </h3>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex shrink-0 gap-2">
                       <Tooltip title={p.code ? "Source code" : "Source link pending"}>
                         <IconButton
                           component={p.code ? "a" : "button"}
@@ -128,7 +130,9 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                  <p className="mt-3 break-words text-sm leading-relaxed text-muted-foreground">
+                    {p.desc}
+                  </p>
 
                   <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                     {p.bullets.map((bullet) => (
@@ -139,7 +143,7 @@ export function Projects() {
                     ))}
                   </ul>
 
-                  <div className="mt-5 flex flex-wrap gap-1.5">
+                  <div className="mt-5 flex min-w-0 flex-wrap gap-1.5 overflow-hidden">
                     {p.tags.map((t) => (
                       <Chip
                         key={t}
