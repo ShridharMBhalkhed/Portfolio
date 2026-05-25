@@ -10,7 +10,7 @@ const resumeHighlights = [
   "Bangalore or remote opportunities",
 ];
 
-const resumeUrl = `${import.meta.env.BASE_URL}ShridharResume.pdf`;
+const resumeUrl = `${import.meta.env.BASE_URL}SHRIDHAR_M_BHALKHED_RESUME.pdf`;
 
 export function Resume() {
   return (

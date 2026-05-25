@@ -15,7 +15,7 @@ const techIcons = [
 ];
 
 export function Hero() {
-  const resumeUrl = `${import.meta.env.BASE_URL}ShridharResume.pdf`;
+  const resumeUrl = `${import.meta.env.BASE_URL}SHRIDHAR_M_BHALKHED_RESUME.pdf`;
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden pt-28">
