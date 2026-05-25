@@ -268,12 +268,12 @@
   }
 
   .project-preview-viewport {
-    aspect-ratio: 9 / 13;
+    aspect-ratio: 390 / 720;
     container-type: inline-size;
   }
 
   .project-preview-iframe {
-    width: 390px;
+    width: 414px;
     height: 720px;
     border: 0;
     transform: scale(calc(100cqw / 390px));
@@ -286,7 +286,7 @@
     }
 
     .project-preview-iframe {
-      width: 100%;
+      width: calc(100% + 18px);
       height: 100%;
       transform: none;
     }
@@ -294,7 +294,7 @@
 
   @media (min-width: 768px) {
     .project-preview-iframe {
-      width: 139%;
+      width: calc(139% + 24px);
       height: 139%;
       transform: scale(0.72);
     }
