@@ -189,13 +189,7 @@ export function Projects() {
                 </div>
 
                 {p.featured && p.live ? (
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group/preview block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black/30 transition-transform duration-300 hover:-translate-y-1"
-                    aria-label={`Open ${p.name} live demo`}
-                  >
+                  <div className="group/preview overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black/30 transition-transform duration-300 hover:-translate-y-1">
                     <div className="flex h-9 min-w-0 items-center gap-1.5 border-b border-[var(--color-border)] bg-white/[0.06] px-2 sm:gap-2 sm:px-3">
                       <span className="h-2 w-2 shrink-0 rounded-full bg-red-400 sm:h-2.5 sm:w-2.5" />
                       <span className="h-2 w-2 shrink-0 rounded-full bg-yellow-300 sm:h-2.5 sm:w-2.5" />
@@ -203,18 +197,35 @@ export function Projects() {
                       <span className="ml-1 min-w-0 truncate font-mono text-[9px] text-muted-foreground sm:ml-2 sm:text-[10px]">
                         annapoorneshwari-supply.netlify.app
                       </span>
+                      <Tooltip title="Open live site">
+                        <IconButton
+                          component="a"
+                          href={p.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Open ${p.name} live demo`}
+                          sx={{
+                            ml: "auto",
+                            color: "var(--color-muted-foreground)",
+                            width: 28,
+                            height: 28,
+                            "&:hover": { color: "var(--color-primary)" },
+                          }}
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                        </IconButton>
+                      </Tooltip>
                     </div>
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted sm:aspect-[16/10]">
+                    <div className="project-preview-viewport relative overflow-hidden bg-muted">
                       <iframe
                         title={`${p.name} live preview`}
                         src={p.live}
                         loading="lazy"
-                        tabIndex={-1}
-                        className="pointer-events-none h-[139%] w-[139%] origin-top-left scale-[0.72] border-0"
+                        className="project-preview-iframe"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/preview:opacity-100" />
                     </div>
-                  </a>
+                  </div>
                 ) : null}
               </div>
             </motion.article>
