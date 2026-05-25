@@ -96,9 +96,13 @@ export function Navbar() {
           </Button>
           <IconButton
             onClick={() => setOpen((v) => !v)}
-            className="flex h-8 w-8 items-center justify-center rounded-lg glass lg:hidden"
+            className="mobile-menu-button flex h-8 w-8 items-center justify-center rounded-lg transition-colors lg:hidden"
             aria-label="Menu"
-            sx={{ color: "var(--color-foreground)" }}
+            sx={{
+              color: "var(--color-foreground)",
+              background: "transparent !important",
+              "&:hover": { backgroundColor: "var(--glass)" },
+            }}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </IconButton>
