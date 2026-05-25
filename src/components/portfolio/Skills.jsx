@@ -45,7 +45,7 @@ export function Skills() {
                     sx={{
                       height: 20,
                       borderRadius: 1,
-                      bgcolor: "rgba(255,255,255,0.06)",
+                      bgcolor: "var(--glass)",
                       color: "var(--color-muted-foreground)",
                       fontSize: 10,
                       letterSpacing: "0.08em",
@@ -68,7 +68,7 @@ export function Skills() {
                   sx={{
                     height: 6,
                     borderRadius: 999,
-                    bgcolor: "rgba(255,255,255,0.06)",
+                    bgcolor: "var(--glass)",
                     ".MuiLinearProgress-bar": {
                       borderRadius: 999,
                       background: "var(--gradient-primary)",

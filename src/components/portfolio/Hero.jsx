@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Button, IconButton, Tooltip } from "@mui/material";
-import { ArrowRight, Download, Mail, Github, Linkedin, Sparkles } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import { ArrowRight, Download, Mail, Github, Linkedin, MapPin, Sparkles } from "lucide-react";
+import profile from "@/assets/profile-cutout.png";
 import { Particles } from "./Effects";
 
 const techIcons = [
@@ -15,6 +15,8 @@ const techIcons = [
 ];
 
 export function Hero() {
+  const resumeUrl = `${import.meta.env.BASE_URL}ShridharResume.pdf`;
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden pt-28">
       <Particles />
@@ -59,7 +61,7 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs text-muted-foreground">
             <Sparkles className="h-3 w-3 text-primary" />
-            Available for full-time opportunities
+            Open to Java Full Stack, Frontend, and Software Developer roles
           </div>
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
             <span className="block text-foreground/90">Hello, I'm</span>
@@ -70,11 +72,11 @@ export function Hero() {
               sequence={[
                 "Java Full Stack Developer",
                 1800,
-                "AI / ML Enthusiast",
+                "Spring Boot + React Developer",
                 1800,
                 "Frontend Developer",
                 1800,
-                "Building modern web experiences.",
+                "Building AI-powered web applications.",
                 2000,
               ]}
               wrapper="span"
@@ -84,8 +86,9 @@ export function Hero() {
             />
           </div>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Computer Science graduate crafting scalable applications with Spring Boot, React, and a
-            love for futuristic UI. I turn ideas into polished, performant products.
+            Java Full Stack Developer building Spring Boot, React, MySQL, and AI-powered web
+            applications. I focus on clean backend logic, responsive interfaces, and practical
+            products that are easy to use.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -107,7 +110,7 @@ export function Hero() {
             </Button>
             <Button
               component="a"
-              href="/ShridharResume.pdf"
+              href={resumeUrl}
               download
               className="magnetic-btn glass-strong"
               startIcon={<Download className="h-4 w-4" />}
@@ -139,7 +142,7 @@ export function Hero() {
             <Tooltip title="GitHub">
               <IconButton
                 component="a"
-                href="https://github.com"
+                href="https://github.com/ShridharMBhalkhed"
                 target="_blank"
                 rel="noreferrer"
                 sx={{
@@ -153,7 +156,7 @@ export function Hero() {
             <Tooltip title="LinkedIn">
               <IconButton
                 component="a"
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/shridharmbhalkhed"
                 target="_blank"
                 rel="noreferrer"
                 sx={{
@@ -164,7 +167,9 @@ export function Hero() {
                 <Linkedin className="h-5 w-5" />
               </IconButton>
             </Tooltip>
-            <span className="text-xs font-mono">/ Bangalore, India</span>
+            <span className="inline-flex items-center gap-1 text-xs font-mono">
+              <MapPin className="h-3 w-3" /> Bangalore, India / Remote
+            </span>
           </div>
         </motion.div>
 
@@ -174,9 +179,9 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative mx-auto"
         >
-          <div className="relative h-[320px] w-[320px] md:h-[400px] md:w-[400px]">
+          <div className="relative h-[340px] w-[320px] md:h-[430px] md:w-[400px]">
             <div
-              className="absolute inset-0 animate-spin-slow rounded-full"
+              className="absolute bottom-0 left-1/2 h-[320px] w-[320px] -translate-x-1/2 animate-spin-slow rounded-full md:h-[400px] md:w-[400px]"
               style={{
                 background:
                   "conic-gradient(from 0deg, transparent, oklch(0.72 0.22 250), oklch(0.65 0.27 305), transparent)",
@@ -184,16 +189,17 @@ export function Hero() {
                 WebkitMask: "radial-gradient(closest-side, transparent 96%, #000 97%)",
               }}
             />
-            <div className="absolute inset-3 animate-pulse-glow overflow-hidden rounded-full glass-strong">
-              <img
-                src={profile}
-                alt="Shridhar M Bhalkhed"
-                width={400}
-                height={400}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-2 -right-2 glass-strong rounded-2xl px-3 py-2 text-xs font-mono">
+            <div className="absolute bottom-3 left-1/2 h-[296px] w-[296px] -translate-x-1/2 rounded-full bg-[#050507] shadow-[inset_0_0_60px_rgba(15,23,42,0.9),0_0_55px_rgba(80,120,255,0.2)] md:h-[376px] md:w-[376px]" />
+            <div className="absolute bottom-3 left-1/2 h-[296px] w-[296px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_50%_35%,rgba(40,50,80,0.45),rgba(5,5,7,0.96)_62%)] md:h-[376px] md:w-[376px]" />
+            <img
+              src={profile}
+              alt="Shridhar M Bhalkhed"
+              width={800}
+              height={800}
+              className="absolute -top-7 left-1/2 z-10 h-[365px] w-[365px] max-w-none -translate-x-1/2 object-contain drop-shadow-[0_24px_45px_rgba(0,0,0,0.55)] md:-top-12 md:h-[475px] md:w-[475px]"
+            />
+            <div className="pointer-events-none absolute bottom-3 left-1/2 h-[296px] w-[296px] -translate-x-1/2 rounded-full ring-1 ring-white/10 md:h-[376px] md:w-[376px]" />
+            <div className="absolute -bottom-2 -right-2 z-20 glass-strong rounded-2xl px-3 py-2 text-xs font-mono">
               <span className="mr-1 inline-block h-2 w-2 rounded-full bg-green-400 shadow-[0_0_8px_oklch(0.8_0.2_140)]" />
               Open to work
             </div>

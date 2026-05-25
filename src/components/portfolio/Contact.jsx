@@ -12,12 +12,47 @@ const contacts = [
     href: "mailto:shridharmbhalkhed@gmail.com",
   },
   { icon: Phone, label: "Phone", value: "+91 73384 11504", href: "tel:+917338411504" },
-  { icon: Linkedin, label: "LinkedIn", value: "/in/shridhar", href: "https://linkedin.com" },
-  { icon: Github, label: "GitHub", value: "@shridhar", href: "https://github.com" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "/in/shridharmbhalkhed",
+    href: "https://www.linkedin.com/in/shridharmbhalkhed",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "@ShridharMBhalkhed",
+    href: "https://github.com/ShridharMBhalkhed",
+  },
 ];
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const updateField = (event) => {
+    setForm((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const submitMessage = (event) => {
+    event.preventDefault();
+    const subject = form.subject || `Portfolio enquiry from ${form.name}`;
+    const body = [`Name: ${form.name}`, `Email: ${form.email}`, "", form.message].join("\n");
+
+    window.location.href = `mailto:shridharmbhalkhed@gmail.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+    setTimeout(() => setSent(false), 3000);
+  };
 
   return (
     <section id="contact" className="relative py-32">
@@ -64,21 +99,34 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-              setTimeout(() => setSent(false), 3000);
-            }}
+            onSubmit={submitMessage}
             className="neon-border rounded-3xl glass-strong p-8"
           >
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Name" name="name" placeholder="Your name" required />
-              <Field label="Email" name="email" type="email" placeholder="you@email.com" required />
+              <Field
+                label="Name"
+                name="name"
+                value={form.name}
+                onChange={updateField}
+                placeholder="Your name"
+                required
+              />
+              <Field
+                label="Email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={updateField}
+                placeholder="you@email.com"
+                required
+              />
             </div>
             <Field
               className="mt-4"
               label="Subject"
               name="subject"
+              value={form.subject}
+              onChange={updateField}
               placeholder="What is this about?"
             />
             <div className="mt-4">
@@ -88,6 +136,9 @@ export function Contact() {
                 minRows={5}
                 label="Message"
                 placeholder="Tell me about your project..."
+                name="message"
+                value={form.message}
+                onChange={updateField}
                 fullWidth
                 variant="outlined"
                 InputLabelProps={{ sx: { color: "var(--color-muted-foreground)", fontSize: 12 } }}
@@ -96,9 +147,9 @@ export function Contact() {
                   "& .MuiOutlinedInput-root": {
                     borderRadius: 2,
                     color: "var(--color-foreground)",
-                    backgroundColor: "rgba(255,255,255,0.05)",
-                    "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
-                    "&:hover fieldset": { borderColor: "rgba(255,255,255,0.2)" },
+                    backgroundColor: "var(--glass)",
+                    "& fieldset": { borderColor: "var(--color-border)" },
+                    "&:hover fieldset": { borderColor: "var(--color-muted-foreground)" },
                     "&.Mui-focused fieldset": { borderColor: "var(--color-primary)" },
                   },
                   "& textarea::placeholder": {
@@ -121,14 +172,14 @@ export function Contact() {
                 "&:hover": { background: "var(--gradient-primary)" },
               }}
             >
-              {sent ? "Message sent" : "Send Message"}
+              {sent ? "Email draft ready" : "Send Message"}
             </Button>
           </motion.form>
         </div>
       </div>
       <Snackbar open={sent} autoHideDuration={3000} onClose={() => setSent(false)}>
         <Alert severity="success" variant="filled" sx={{ borderRadius: 2 }}>
-          Message sent successfully.
+          Opening your email app with the message ready to send.
         </Alert>
       </Snackbar>
     </section>
@@ -150,9 +201,9 @@ function Field({ label, className = "", ...props }) {
           "& .MuiOutlinedInput-root": {
             borderRadius: 2,
             color: "var(--color-foreground)",
-            backgroundColor: "rgba(255,255,255,0.05)",
-            "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
-            "&:hover fieldset": { borderColor: "rgba(255,255,255,0.2)" },
+            backgroundColor: "var(--glass)",
+            "& fieldset": { borderColor: "var(--color-border)" },
+            "&:hover fieldset": { borderColor: "var(--color-muted-foreground)" },
             "&.Mui-focused fieldset": { borderColor: "var(--color-primary)" },
           },
           "& input::placeholder": {

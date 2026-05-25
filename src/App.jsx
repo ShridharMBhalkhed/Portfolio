@@ -2,10 +2,12 @@ import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
+import { Education } from "@/components/portfolio/Education";
 import { Skills } from "@/components/portfolio/Skills";
 import { Experience } from "@/components/portfolio/Experience";
 import { Projects } from "@/components/portfolio/Projects";
 import { Certifications } from "@/components/portfolio/Certifications";
+import { Resume } from "@/components/portfolio/Resume";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { CursorGlow, LoadingScreen, ScrollProgress } from "@/components/portfolio/Effects";
@@ -33,6 +35,8 @@ const theme = createTheme({
       styleOverrides: {
         body: {
           minWidth: 320,
+          backgroundColor: "var(--color-background)",
+          color: "var(--color-foreground)",
         },
       },
     },
@@ -64,10 +68,12 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Education />
         <Skills />
         <Experience />
         <Projects />
         <Certifications />
+        <Resume />
         <Contact />
       </main>
       <Footer />

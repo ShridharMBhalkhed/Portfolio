@@ -1,41 +1,51 @@
 import { motion } from "framer-motion";
-import { Chip, IconButton, Tooltip } from "@mui/material";
-import { ExternalLink, Github } from "lucide-react";
+import { Button, Chip, IconButton, Tooltip } from "@mui/material";
+import { ExternalLink, Github, Lock } from "lucide-react";
 import { SectionHeader } from "./About";
 
 const projects = [
   {
     name: "Annapoorneshwari Supply",
-    desc: "A modern, responsive commercial business website built for a real client. Polished UI, fast load, and deployed on Netlify.",
+    desc: "A responsive commercial website for a real business, focused on clear product presentation, fast loading, and mobile-friendly navigation.",
+    bullets: [
+      "Built the public-facing pages with HTML, CSS, and JavaScript.",
+      "Delivered a polished business presence with responsive layouts.",
+      "Handled deployment and post-launch iteration.",
+    ],
     tags: ["HTML", "CSS", "JavaScript", "Netlify", "Responsive"],
-    live: "#",
-    code: "#",
+    live: "",
+    code: "",
+    status: "Client project",
     accent: "from-[oklch(0.72_0.22_250)] to-[oklch(0.65_0.27_305)]",
     featured: true,
   },
   {
     name: "AI-Powered Email Writer",
-    desc: "Spring Boot + Gemini API service that automates professional email generation, reducing drafting time by ~50% via REST.",
+    desc: "Spring Boot service using Gemini API to generate professional emails from short prompts through REST endpoints.",
+    bullets: [
+      "Integrated Gemini API through backend service logic.",
+      "Designed REST endpoints for prompt-based email generation.",
+      "Focused on reducing repetitive drafting time for users.",
+    ],
     tags: ["Spring Boot", "Gemini API", "REST", "WebClient", "Java"],
-    live: "#",
-    code: "#",
+    live: "",
+    code: "",
+    status: "Code link pending",
     accent: "from-[oklch(0.75_0.2_200)] to-[oklch(0.72_0.22_250)]",
   },
   {
     name: "Employee Attrition Prediction",
-    desc: "ML + Deep Learning system on Flask predicting employee attrition. Improves HR forecasting accuracy by 45%.",
+    desc: "Machine learning and deep learning project for predicting employee attrition and supporting HR decision-making.",
+    bullets: [
+      "Prepared data for model training and prediction workflows.",
+      "Built a Flask interface for interacting with the model.",
+      "Presented attrition risk as a practical HR forecasting tool.",
+    ],
     tags: ["Python", "Flask", "ML", "Deep Learning"],
-    live: "#",
-    code: "#",
+    live: "",
+    code: "",
+    status: "Academic project",
     accent: "from-[oklch(0.7_0.25_320)] to-[oklch(0.65_0.27_305)]",
-  },
-  {
-    name: "Expense Tracker Dashboard",
-    desc: "Interactive expense management dashboard streamlining approvals & reporting — tracking efficiency up by 40%.",
-    tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "LocalStorage"],
-    live: "#",
-    code: "#",
-    accent: "from-[oklch(0.7_0.22_265)] to-[oklch(0.75_0.2_180)]",
   },
 ];
 
@@ -43,9 +53,10 @@ export function Projects() {
   return (
     <section id="projects" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeader eyebrow="Projects" title="Things I've designed & shipped" />
+        <SectionHeader eyebrow="Projects" title="Selected work with practical outcomes" />
         <p className="mx-auto mt-6 max-w-2xl text-center text-muted-foreground">
-          A selection of work spanning full stack, AI, and client-facing products.
+          Full stack, AI, and client-facing projects built around clear problems, useful workflows,
+          and deployable interfaces.
         </p>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -73,21 +84,27 @@ export function Projects() {
                     <h3 className="mt-1 font-display text-2xl font-semibold">{p.name}</h3>
                   </div>
                   <div className="flex gap-2">
-                    <Tooltip title="Source code">
+                    <Tooltip title={p.code ? "Source code" : "Source link pending"}>
                       <IconButton
-                        component="a"
-                        href={p.code}
+                        component={p.code ? "a" : "button"}
+                        href={p.code || undefined}
+                        target={p.code ? "_blank" : undefined}
+                        rel={p.code ? "noreferrer" : undefined}
+                        disabled={!p.code}
                         aria-label="Source"
                         className="glass"
                         sx={{ color: "var(--color-foreground)", width: 36, height: 36 }}
                       >
-                        <Github className="h-4 w-4" />
+                        {p.code ? <Github className="h-4 w-4" /> : <Lock className="h-4 w-4" />}
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Live demo">
+                    <Tooltip title={p.live ? "Live demo" : "Live link pending"}>
                       <IconButton
-                        component="a"
-                        href={p.live}
+                        component={p.live ? "a" : "button"}
+                        href={p.live || undefined}
+                        target={p.live ? "_blank" : undefined}
+                        rel={p.live ? "noreferrer" : undefined}
+                        disabled={!p.live}
                         aria-label="Live"
                         sx={{
                           color: "var(--color-primary-foreground)",
@@ -108,6 +125,15 @@ export function Projects() {
 
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
 
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  {p.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-2">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
                     <Chip
@@ -118,8 +144,8 @@ export function Projects() {
                       sx={{
                         height: 24,
                         borderRadius: 1,
-                        borderColor: "rgba(255,255,255,0.1)",
-                        bgcolor: "rgba(255,255,255,0.05)",
+                        borderColor: "var(--color-border)",
+                        bgcolor: "var(--glass)",
                         color: "var(--color-muted-foreground)",
                         fontFamily: "var(--font-mono)",
                         fontSize: 10,
@@ -128,14 +154,32 @@ export function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4 text-xs">
-                  <span className="font-mono text-muted-foreground">Status · Live</span>
-                  <a
-                    href={p.live}
-                    className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-primary"
-                  >
-                    Live Demo <ExternalLink className="h-3 w-3" />
-                  </a>
+                <div className="mt-auto flex items-center justify-between border-t border-[var(--color-border)] pt-4 text-xs">
+                  <span className="font-mono text-muted-foreground">{p.status}</span>
+                  {p.live ? (
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-primary"
+                    >
+                      Live Demo <ExternalLink className="h-3 w-3" />
+                    </a>
+                  ) : (
+                    <Button
+                      disabled
+                      size="small"
+                      startIcon={<Lock className="h-3 w-3" />}
+                      sx={{
+                        minWidth: 0,
+                        p: 0,
+                        fontSize: 12,
+                        color: "var(--color-muted-foreground)",
+                      }}
+                    >
+                      Link pending
+                    </Button>
+                  )}
                 </div>
               </div>
             </motion.article>

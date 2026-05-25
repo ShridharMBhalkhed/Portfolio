@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative mt-20 border-t border-white/5">
+    <footer className="relative mt-20 border-t border-[var(--color-border)]">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 mx-auto h-px max-w-3xl"
@@ -19,7 +19,7 @@ export function Footer() {
               <span className="text-gradient-neon">Shridhar M Bhalkhed</span>
             </p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">
-              © {new Date().getFullYear()} — Crafted with code, caffeine & cinematic curiosity.
+              © {new Date().getFullYear()} - Built with React, Tailwind CSS, and MUI.
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -30,7 +30,7 @@ export function Footer() {
               <Mail className="h-4 w-4" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/ShridharMBhalkhed"
               target="_blank"
               rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-lg glass transition-all hover:glow-blue"
@@ -38,7 +38,7 @@ export function Footer() {
               <Github className="h-4 w-4" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shridharmbhalkhed"
               target="_blank"
               rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-lg glass transition-all hover:glow-blue"

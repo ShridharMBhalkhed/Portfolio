@@ -85,7 +85,7 @@ export function Experience() {
                     {it.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                        className="rounded-md border border-[var(--color-border)] bg-[var(--glass)] px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
                       >
                         {t}
                       </span>

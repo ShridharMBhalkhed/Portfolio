@@ -5,32 +5,32 @@ const cards = [
   {
     icon: GraduationCap,
     title: "CS Graduate",
-    text: "B.E. Computer Science from Akshaya Institute of Technology with CGPA 8.1.",
+    text: "B.E. Computer Science and Engineering from Akshaya Institute of Technology with CGPA 8.1.",
   },
   {
     icon: Code2,
     title: "Java Full Stack",
-    text: "Hands-on with Spring Boot, Hibernate, REST APIs, MySQL — building end-to-end apps.",
+    text: "Hands-on with Spring Boot, Hibernate, REST APIs, and MySQL for end-to-end apps.",
   },
   {
     icon: Brain,
     title: "AI / ML",
-    text: "Built predictive systems & worked on real autonomous-driving annotation pipelines.",
+    text: "Built predictive systems and worked on autonomous-driving annotation pipelines.",
   },
   {
     icon: Rocket,
     title: "Client Projects",
-    text: "Shipped real production websites — deployed, monitored, iterated with users.",
+    text: "Shipped real production websites, then deployed, monitored, and improved them.",
   },
   {
     icon: Layers,
     title: "Scalable Mindset",
-    text: "Architecting clean, modular applications designed to grow with the product.",
+    text: "Focused on clean, modular applications that can grow with the product.",
   },
   {
     icon: Sparkles,
-    title: "Futuristic UI",
-    text: "Passionate about UI/UX that feels cinematic, fast, and a little magical.",
+    title: "Frontend Polish",
+    text: "Interested in responsive interfaces that feel fast, clear, and professional.",
   },
 ];
 
@@ -38,11 +38,11 @@ export function About() {
   return (
     <section id="about" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeader eyebrow="About" title="A developer with a builder's heart" />
+        <SectionHeader eyebrow="About" title="A developer with a builder's mindset" />
         <p className="mx-auto mt-6 max-w-2xl text-center text-muted-foreground">
-          I'm a Computer Science graduate based in Bangalore. I love bridging the gap between robust
-          backend systems and immersive user experiences — from Spring Boot APIs to AI models to
-          glassy, animated frontends.
+          I'm a Computer Science graduate based in Bangalore. I enjoy connecting backend systems
+          with practical user interfaces, from Spring Boot APIs and MySQL databases to React
+          frontends and AI-assisted workflows.
         </p>
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
