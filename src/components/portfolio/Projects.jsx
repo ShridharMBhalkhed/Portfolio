@@ -159,14 +159,14 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="mt-auto flex items-center justify-between border-t border-[var(--color-border)] pt-4 text-xs">
-                    <span className="font-mono text-muted-foreground">{p.status}</span>
+                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-[var(--color-border)] pt-4 text-xs">
+                    <span className="min-w-0 font-mono text-muted-foreground">{p.status}</span>
                     {p.live ? (
                       <a
                         href={p.live}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-primary"
+                        className="inline-flex shrink-0 items-center gap-1 text-foreground transition-colors hover:text-primary"
                       >
                         Live Demo <ExternalLink className="h-3 w-3" />
                       </a>
