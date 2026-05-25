@@ -189,7 +189,7 @@ export function Projects() {
                 </div>
 
                 {p.featured && p.live ? (
-                  <div className="group/preview overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black/30 transition-transform duration-300 hover:-translate-y-1">
+                  <div className="group/preview hidden overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black/30 transition-transform duration-300 hover:-translate-y-1 sm:block">
                     <div className="flex h-9 min-w-0 items-center gap-1.5 border-b border-[var(--color-border)] bg-white/[0.06] px-2 sm:gap-2 sm:px-3">
                       <span className="h-2 w-2 shrink-0 rounded-full bg-red-400 sm:h-2.5 sm:w-2.5" />
                       <span className="h-2 w-2 shrink-0 rounded-full bg-yellow-300 sm:h-2.5 sm:w-2.5" />
