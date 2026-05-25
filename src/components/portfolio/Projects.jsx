@@ -67,7 +67,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className={`tilt-card neon-border group relative overflow-hidden rounded-3xl glass p-6 ${
+              className={`tilt-card neon-border group relative overflow-hidden rounded-3xl glass p-4 sm:p-6 ${
                 p.featured ? "md:col-span-2" : ""
               }`}
             >
@@ -196,20 +196,21 @@ export function Projects() {
                     className="group/preview block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black/30 transition-transform duration-300 hover:-translate-y-1"
                     aria-label={`Open ${p.name} live demo`}
                   >
-                    <div className="flex h-9 items-center gap-2 border-b border-[var(--color-border)] bg-white/[0.06] px-3">
-                      <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-                      <span className="ml-2 truncate font-mono text-[10px] text-muted-foreground">
+                    <div className="flex h-9 min-w-0 items-center gap-1.5 border-b border-[var(--color-border)] bg-white/[0.06] px-2 sm:gap-2 sm:px-3">
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-red-400 sm:h-2.5 sm:w-2.5" />
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-yellow-300 sm:h-2.5 sm:w-2.5" />
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-green-400 sm:h-2.5 sm:w-2.5" />
+                      <span className="ml-1 min-w-0 truncate font-mono text-[9px] text-muted-foreground sm:ml-2 sm:text-[10px]">
                         annapoorneshwari-supply.netlify.app
                       </span>
                     </div>
-                    <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted sm:aspect-[16/10]">
                       <iframe
                         title={`${p.name} live preview`}
                         src={p.live}
                         loading="lazy"
-                        className="h-full w-full origin-top-left scale-[0.72] border-0 md:h-[139%] md:w-[139%]"
+                        tabIndex={-1}
+                        className="pointer-events-none h-[139%] w-[139%] origin-top-left scale-[0.72] border-0"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/preview:opacity-100" />
                     </div>
